@@ -1,7 +1,10 @@
+import './App.css';
+import Nav from './components/Nav/Nav';
+
 function App() {
    return (
       <div className='App'>
-         <h1>Flipkart Clone</h1>
+         <Nav />
       </div>
    );
 }
