@@ -34,6 +34,16 @@ export default function Sidebar() {
    return (
       <>
          <aside className='filter-md'>
+            <p className='filter-title'>
+               Filters -
+               <span>
+                  <button
+                     onClick={() => dispatch({ type: 'RESET_STATE' })}
+                     className='btn btn-secondary'>
+                     Clear All
+                  </button>
+               </span>
+            </p>
             <div className='filter'>
                <p className='filter-title'>Sort By</p>
                <div className='filter-inputs'>

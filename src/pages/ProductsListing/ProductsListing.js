@@ -18,7 +18,7 @@ export default function ProductsListing() {
    const sortedData = getSortedData(products, sortBy);
    const filteredBySize = getFilteredSize(sortedData, size);
    const filteredByBrand = getFilteredBrand(filteredBySize, brand);
-   const filteredByCategory = getFilteredCategory(filteredByBrand,categories);
+   const filteredByCategory = getFilteredCategory(filteredByBrand, categories);
 
    return (
       <>
@@ -29,7 +29,7 @@ export default function ProductsListing() {
             <div className='wrapper-products'>
                <div className='row products'>
                   {filteredByCategory.map((product) => {
-                     return <Product product={product} />
+                     return <Product product={product} />;
                   })}
                </div>
             </div>

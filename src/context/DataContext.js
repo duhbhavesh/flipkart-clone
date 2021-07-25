@@ -4,7 +4,7 @@ import { DataReducer } from '../reducer/DataReducer';
 
 export const DataContext = createContext();
 
-const initialState = {
+export const initialState = {
    products: products,
    sortBy: null,
    brand: [],

@@ -1,3 +1,5 @@
+import { initialState } from '../context/DataContext';
+
 export const DataReducer = (state, { type, payload }) => {
    switch (type) {
       case 'SORT':
@@ -27,8 +29,14 @@ export const DataReducer = (state, { type, payload }) => {
       case 'REMOVE_CATEGORY':
          return {
             ...state,
-            categories: state.categories.filter((category) => category !== payload),
+            categories: state.categories.filter(
+               (category) => category !== payload,
+            ),
          };
+
+      case 'RESET_STATE':
+         return initialState;
+
       default:
          break;
    }
