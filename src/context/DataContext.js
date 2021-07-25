@@ -1,10 +1,11 @@
 import { createContext, useContext, useReducer } from 'react';
+import { products } from '../data/products';
 import { DataReducer } from '../reducer/DataReducer';
 
 export const DataContext = createContext();
 
 const initialState = {
-   products: [],
+   products: products,
    sortBy: null,
    brand: [],
    size: [],
