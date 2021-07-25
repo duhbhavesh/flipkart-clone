@@ -1,0 +1,38 @@
+.fa-times {
+   cursor: pointer;
+}
+
+.filter-input-radio,
+.filter-input-check {
+   margin-right: 0.2rem;
+}
+
+.filter-md {
+   display: block;
+   margin-top: 4rem;
+   padding: 1rem;
+   width: 100%;
+   position: sticky;
+   position: -webkit-sticky;
+   top: 6rem;
+   overflow: auto;
+   height: 80vh;
+   border-radius: 5px;
+   background-color: rgba(253, 253, 254, 1);
+   border: 1px solid #d3d7e1;
+}
+
+.filter {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   padding-top: 0.6rem;
+   padding-bottom: 0.6rem;
+   border-bottom: 1px solid #d3d7e1;
+}
+
+.filter-title {
+   text-transform: uppercase;
+   font-weight: 600;
+   margin-bottom: 0.5rem;
+}
