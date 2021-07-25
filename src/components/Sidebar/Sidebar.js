@@ -1,12 +1,35 @@
 import React from 'react';
 import { useData } from '../../context/DataContext';
+import { brands, categories, sizes } from '../../data/data';
 import './Sidebar.css';
 
 export default function Sidebar() {
-   const {
-      state: { sortBy },
-      dispatch,
-   } = useData();
+   const { state, dispatch } = useData();
+   const { sortBy } = state;
+
+   const handleSize = (size) => {
+      if (state.size.includes(size)) {
+         dispatch({ type: 'REMOVE_SIZE', payload: size });
+      } else {
+         dispatch({ type: 'SET_SIZE', payload: size });
+      }
+   };
+
+   const handleBrand = (brand) => {
+      if (state.brand.includes(brand)) {
+         dispatch({ type: 'REMOVE_BRAND', payload: brand });
+      } else {
+         dispatch({ type: 'SET_BRAND', payload: brand });
+      }
+   };
+
+   const handleCategory = (category) => {
+      if (state.categories.includes(category)) {
+         dispatch({ type: 'REMOVE_CATEGORY', payload: category });
+      } else {
+         dispatch({ type: 'SET_CATEGORY', payload: category });
+      }
+   };
 
    return (
       <>
@@ -43,107 +66,62 @@ export default function Sidebar() {
 
             <div className='filter'>
                <p className='filter-title'>Sizes</p>
+
                <div className='filter-inputs'>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     S
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     M
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     L
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     XL
-                  </div>
+                  {sizes.map((size) => {
+                     return (
+                        <div className='filter-input'>
+                           <input
+                              onChange={() => handleSize(size)}
+                              checked={state.size.includes(size)}
+                              name='filter-md'
+                              type='checkbox'
+                              className='filter-input-check'
+                           />
+                           {size}
+                        </div>
+                     );
+                  })}
                </div>
             </div>
 
             <div className='filter'>
                <p className='filter-title'>Brand</p>
                <div className='filter-inputs'>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Brand 1
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Brand 2
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Brand 3
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Brand 4
-                  </div>
+                  {brands.map((brand) => {
+                     return (
+                        <div className='filter-input'>
+                           <input
+                              onChange={() => handleBrand(brand)}
+                              checked={state.brand.includes(brand)}
+                              name='filter-md'
+                              type='checkbox'
+                              className='filter-input-check'
+                           />
+                           {brand}
+                        </div>
+                     );
+                  })}
                </div>
             </div>
 
             <div className='filter'>
                <p className='filter-title'>Ideal For</p>
                <div className='filter-inputs'>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Men
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Women
-                  </div>
-                  <div className='filter-input'>
-                     <input
-                        name='filter-md'
-                        type='checkbox'
-                        className='filter-input-check'
-                     />
-                     Kids
-                  </div>
+                  {categories.map((category) => {
+                     return (
+                        <div className='filter-input'>
+                           <input
+                              onChange={() => handleCategory(category)}
+                              checked={state.categories.includes(category)}
+                              name='filter-md'
+                              type='checkbox'
+                              className='filter-input-check'
+                           />
+                           {category}
+                        </div>
+                     );
+                  })}
                </div>
             </div>
          </aside>

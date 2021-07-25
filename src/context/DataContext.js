@@ -9,7 +9,7 @@ const initialState = {
    sortBy: null,
    brand: [],
    size: [],
-   gender: [],
+   categories: [],
 };
 
 export const DataProvider = ({ children }) => {

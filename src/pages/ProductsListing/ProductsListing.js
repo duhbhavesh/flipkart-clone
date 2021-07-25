@@ -2,15 +2,23 @@ import React from 'react';
 import Product from '../../components/Product/Product';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useData } from '../../context/DataContext';
-import { getSortedData } from '../../utils/utils';
+import {
+   getFilteredBrand,
+   getFilteredCategory,
+   getFilteredSize,
+   getSortedData,
+} from '../../utils/utils';
 import './ProductsListing.css';
 
 export default function ProductsListing() {
    const {
-      state: { products, sortBy },
+      state: { products, sortBy, size, brand, categories },
    } = useData();
 
    const sortedData = getSortedData(products, sortBy);
+   const filteredBySize = getFilteredSize(sortedData, size);
+   const filteredByBrand = getFilteredBrand(filteredBySize, brand);
+   const filteredByCategory = getFilteredCategory(filteredByBrand,categories);
 
    return (
       <>
@@ -20,8 +28,8 @@ export default function ProductsListing() {
             </div>
             <div className='wrapper-products'>
                <div className='row products'>
-                  {sortedData.map((product) => {
-                     return <Product product={product} />;
+                  {filteredByCategory.map((product) => {
+                     return <Product product={product} />
                   })}
                </div>
             </div>

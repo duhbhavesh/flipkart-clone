@@ -7,7 +7,7 @@ export const products = [
       brand: 'Brand 1',
       ratings: 4,
       gender: 'Men',
-      sizes: ['S', 'M'],
+      sizes: ['S', 'M', 'XL'],
    },
    {
       id: '2',
@@ -24,10 +24,10 @@ export const products = [
       name: 'Striped Men Round Neck Yellow T-Shirt',
       image: 'https://rukminim1.flixcart.com/image/580/696/kqgyhe80/jacket/2/k/y/m-14919fk-breil-by-fort-collins-original-imag4h2jfpnh7wnz.jpeg?q=50',
       price: 730,
-      brand: 'Brand 1',
+      brand: 'Brand 3',
       ratings: 1,
       gender: 'Men',
-      sizes: ['S', 'LG'],
+      sizes: ['S', 'LG', 'XL'],
    },
    {
       id: '4',
@@ -57,7 +57,7 @@ export const products = [
       brand: 'Brand 4',
       ratings: 3,
       gender: 'Women',
-      sizes: ['S', 'LG'],
+      sizes: ['S', 'LG', 'M'],
    },
    {
       id: '7',
@@ -77,6 +77,6 @@ export const products = [
       brand: 'Brand 5',
       ratings: 2,
       gender: 'Kids',
-      sizes: ['S', 'LG'],
+      sizes: ['M'],
    },
 ];
